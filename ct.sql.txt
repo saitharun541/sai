@@ -1,0 +1,122 @@
+drop table ereg
+/
+create table ereg (
+userid varchar2(10),
+password varchar2(20),
+first_name varchar2(20),
+mid_name varchar2(20),
+last_name varchar2(20),
+suffix varchar2(5),
+address varchar2(20),
+city varchar2(20),
+state varchar2(20),
+country varchar2(20),
+zipcode number(6),
+phone number(10),
+email varchar2(20),
+job varchar2(20),
+webaddr varchar2(20))
+/
+drop table course_details
+/
+
+
+drop table courses
+/
+create table courses(course_id varchar2(10) primary key,course_name varchar2(20),
+course_cat varchar2(20),Sessions number(5))
+/
+insert into courses values('c1','C','ProgrammingLang',30)
+/
+insert into courses values('c2','html','Internet',50)
+/
+ insert into courses values('c3','dhtml','Internet',20)
+/
+
+
+
+drop table courses
+/
+create table courses(course_id varchar2(10) primary key,course_name varchar2(20),
+course_cat varchar2(20),Sessions number(5))
+/
+insert into courses values('c1','C','ProgrammingLang',30)
+/
+insert into courses values('c2','html','Internet',50)
+/
+ insert into courses values('c3','dhtml','Internet',20)
+/
+
+
+
+drop table course_details
+/
+create table course_details(course_id varchar2(10) references courses(course_id) not null,session_no number,session_topic varchar2(50))
+/
+
+insert into course_details values( 'c1' , 1 , 'Introduction to C')
+/
+
+insert into course_details values( 'c1' , 2 , 'Data Types')
+/
+
+insert into course_details values( 'c1' , 3 , 'Expressions')
+/
+
+insert into course_details values( 'c1' , 4 , 'Operators')
+/
+
+insert into course_details values( 'c1' , 6 , 'Loops')
+/
+
+insert into course_details values( 'c1' , 5 , 'If Statements')
+/
+
+
+insert into course_details values( 'c2' , 1 , 'Introduction Internet')
+/
+
+insert into course_details values( 'c2' , 4 , 'Images')
+/
+
+insert into course_details values( 'c2' , 3 , 'Links')
+/
+
+insert into course_details values( 'c2' , 2 , 'HTML Tags')
+/
+
+insert into course_details values( 'c2' , 5 , 'Tables')
+/
+
+drop table admin
+/
+create table admin(uname varchar2(15) primary key,pwd varchar2(10))
+/
+
+insert into admin values( 'root' ,'root')
+/
+
+
+
+
+
+create table question_answer(
+
+ COURSE_ID                                          VARCHAR2(10)
+ QUESTION_ID                                        VARCHAR2(10)
+ QUESTION_DESC                                      VARCHAR2(200)
+ OPTION1                                            VARCHAR2(40)
+ OPTION2                                            VARCHAR2(40)
+ OPTION3                                            VARCHAR2(40)
+ OPTION4                                            VARCHAR2(40)
+ ANSWER                                             VARCHAR2(40)
+)
+/
+
+drop table session_details
+/
+create table session_details
+(
+    course_id varchar2(10) references courses(course_id),session_no varchar2(10),filename varchar2(20)
+)
+/
